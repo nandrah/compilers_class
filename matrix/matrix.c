@@ -1,19 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define NEW_LINE 10 // LF in ASCII
+
 
 int main () {
-   float matrix [3][3];
-   float result [3][3] = {{0,0,0},{0,0,0},{0,0,0}};;
+   double matrix [3][3];
+   double result [3][3] = {{0,0,0},{0,0,0},{0,0,0}};;
    int i, j, k;
    FILE * fp;
+   char line[128];
+   char *ptr;
+   double number;
 
    fp = fopen ("matrix_data.dat", "r");
    
    // Read matrix from file
    for (i = 0; i < 3; i++) {
 	   for (j = 0; j < 3; j++){
-		   fscanf(fp, "%g", &matrix[i][j]);
+		   fgets(line, sizeof line, fp);
+		   number = strtod(line, &ptr);
+		   if(*ptr != NEW_LINE) {
+				printf("Invalid number: %s\n", line);
+				printf("Please introduce only numbers\n");
+				exit(0);
+			}
+		   matrix[i][j] = number;
+	   }
+   }
+   
+   // Print initial matrix
+   printf("Initial Matrix:\n");
+   for (i = 0; i < 3; i++) {
+	   for (j = 0; j < 3; j++){
+		   printf("%g \n", matrix[i][j]);
 	   }
    }
    
@@ -27,6 +47,7 @@ int main () {
    }
    
    // Print result matrix
+   printf("\nResult Matrix:\n");
 	for (i = 0; i < 3; i++) {
 	   for (j = 0; j < 3; j++){
 		   printf("%g \n", result[i][j]);
