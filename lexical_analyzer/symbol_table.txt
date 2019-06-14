@@ -1,0 +1,50 @@
+Preprocessor directive, #include <example.h>, 1, 1
+Preprocessor directive, #include "folder/preprocessor.h", 2, 1
+Single line comment: , // Literally does_not_exists.h does not exists, 3, 1
+Single line comment: , // What will the preprocessor does in this case?, 4, 1
+Preprocessor directive, #include "does_not_exists.h", 5, 1
+Preprocessor directive, #define PI 3.1416, 8, 1
+Integer, int, 10, 0
+Function name, main, 10, 4
+Left parenthesis, (, 10, 9
+Right parenthesis, ), 10, 10
+Blocked Statement Body Open, {, 10, 11
+Preprocessor directive, #if PI==3.1417, 12, 1
+printf function, printf, 13, 4
+Left parenthesis, (, 13, 11
+quotes, ", 13, 12
+String in quotes, This is the value of PI %f, 13, 13
+quotes, ", 13, 39
+Comma, ,, 13, 40
+Identifier2, PI, 13, 41
+Right parenthesis, ), 13, 44
+Semicolon, ;, 13, 45
+Preprocessor directive, #else, 14, 1
+Identifier2, 	printf, 15, 0
+Left parenthesis, (, 15, 8
+quotes, ", 15, 9
+String in quotes, Hello World!, 15, 10
+quotes, ", 15, 22
+Right parenthesis, ), 15, 23
+Semicolon, ;, 15, 24
+Preprocessor directive, #endif, 16, 1
+Identifier2, 	return, 17, 0
+Blocked Statement Body Closed, }, 19, 1
+Preprocessor directive, #undef PI, 21, 1
+Integer, int, 22, 0
+Function name, not_main, 22, 4
+Left parenthesis, (, 22, 13
+Right parenthesis, ), 22, 14
+Blocked Statement Body Open, {, 22, 15
+printf function, printf, 23, 4
+Left parenthesis, (, 23, 11
+quotes, ", 23, 12
+String in quotes, This is the value of PI %f, 23, 13
+quotes, ", 23, 39
+Comma, ,, 23, 40
+Identifier2, PI, 23, 41
+Right parenthesis, ), 23, 44
+Semicolon, ;, 23, 45
+Blocked Statement Body Closed, }, 25, 1
+Single line comment: , // This is a syntax error, how the preprocessor will handle this scenario?, 27, 1
+Preprocessor directive, #include "error.h, 28, 1
